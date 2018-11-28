@@ -12,7 +12,7 @@
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
+		607FACEC1AFB9204008FA782 /* TestOrderedNonOverlappingIntervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* TestOrderedNonOverlappingIntervals.swift */; };
 		61996B9FBA9701D1401D0DCF /* Pods_Thoth_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E8903D3F829D350B890D80A /* Pods_Thoth_Example.framework */; };
 		D6B47AD95717905A9F4FF2C2 /* Pods_Thoth_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40B49DADE103509711C16AF /* Pods_Thoth_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 
 /* Begin PBXFileReference section */
 		0E8903D3F829D350B890D80A /* Pods_Thoth_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoth_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		448208F65B4E9C829A8A5952 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		448208F65B4E9C829A8A5952 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5BBC9A204CF7DB6E87B24F10 /* Pods-Thoth_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoth_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thoth_Example/Pods-Thoth_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* Thoth_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thoth_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -40,13 +40,13 @@
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* Thoth_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Thoth_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		607FACEB1AFB9204008FA782 /* TestOrderedNonOverlappingIntervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOrderedNonOverlappingIntervals.swift; sourceTree = "<group>"; };
 		8625F888690A0F5A5357AE04 /* Pods-Thoth_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoth_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thoth_Example/Pods-Thoth_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		99ADA04AB874899871D4571F /* Pods-Thoth_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoth_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thoth_Tests/Pods-Thoth_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C99FCAB1DC703047F38D617E /* Pods-Thoth_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoth_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thoth_Tests/Pods-Thoth_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D99EB8DA658DD5BE1B895034 /* Thoth.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = Thoth.podspec; path = ../Thoth.podspec; sourceTree = "<group>"; };
+		D99EB8DA658DD5BE1B895034 /* Thoth.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Thoth.podspec; path = ../Thoth.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E40B49DADE103509711C16AF /* Pods_Thoth_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoth_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6E9D6D9BA798D2F227BBEF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		F6E9D6D9BA798D2F227BBEF5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +78,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		462299C421AC4337004C9AC6 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +109,7 @@
 		607FACD21AFB9204008FA782 /* Example for Thoth */ = {
 			isa = PBXGroup;
 			children = (
+				462299C421AC4337004C9AC6 /* Analytics */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -124,7 +132,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				607FACEB1AFB9204008FA782 /* Tests.swift */,
+				607FACEB1AFB9204008FA782 /* TestOrderedNonOverlappingIntervals.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
 			path = Tests;
@@ -170,7 +178,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				3EC28D2BC636610A83F25FAF /* [CP] Embed Pods Frameworks */,
+				0F63C64EF0FDAD2E3A0B37ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +220,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 3GZ79KZE43;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
@@ -261,7 +270,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3EC28D2BC636610A83F25FAF /* [CP] Embed Pods Frameworks */ = {
+		0F63C64EF0FDAD2E3A0B37ED /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -343,7 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				607FACEC1AFB9204008FA782 /* TestOrderedNonOverlappingIntervals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +490,7 @@
 			baseConfigurationReference = 8625F888690A0F5A5357AE04 /* Pods-Thoth_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3GZ79KZE43;
 				INFOPLIST_FILE = Thoth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -496,6 +506,7 @@
 			baseConfigurationReference = 5BBC9A204CF7DB6E87B24F10 /* Pods-Thoth_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3GZ79KZE43;
 				INFOPLIST_FILE = Thoth/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  Screen1ViewController.swift
 //  Thoth
 //
 //  Created by tm on 11/26/2018.
@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Thoth
 
-class ViewController: UIViewController {
+class Screen1ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
