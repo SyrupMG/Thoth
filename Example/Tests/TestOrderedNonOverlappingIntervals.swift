@@ -21,7 +21,7 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
         let intervals = OrderedNonOverlappingIntervals()
         
         let result = intervals.intervals
-        let expectedResult = [ClosedRange<Range<Int>.Bound>]()
+        let expectedResult = [ClosedRange<OrderedNonOverlappingIntervals.Bound>]()
         
          XCTAssertEqual(result, expectedResult)
     }
@@ -29,7 +29,7 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     // ([1...3, 5...8, 10...15]) -> [1...3, 5...8, 10...15]
     func testInitFromArrayOfOrderedNonOverlappingIntervalsShouldCreateAnInstanceWithIntervalsEqualsToThatArray(){
         
-        let array = [1...3, 5...8, 10...15]
+        let array = [1.0...3.0, 5.0...8.0, 10.0...15.0]
         let intervals = OrderedNonOverlappingIntervals(from: array)
         
         let result = intervals.intervals
@@ -41,11 +41,11 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     // ([1...3, 10...15, 5...8]) -> [1...3, 5...8, 10...15]
     func testInitFromArrayOfNonOrderedNonOverlappingIntervalsShouldCreateAnInstanceWithIntervalsEqualToThatArrayOrdered(){
         
-        let array = [1...3, 10...15, 5...8]
+        let array = [1.0...3.0, 10.0...15.0, 5.0...8.0]
         let intervals = OrderedNonOverlappingIntervals(from: array)
         
         let result = intervals.intervals
-        let expectedResult = [1...3, 5...8, 10...15]
+        let expectedResult = [1.0...3.0, 5.0...8.0, 10.0...15.0]
         
         XCTAssertEqual(result, expectedResult)
     }
@@ -53,11 +53,11 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     // ([1...3, 2...4, 5...8]) -> [1...4, 5...8]
     func testInitFromArrayOfThreeIntervalsWhereFirstOneOverlapsSecondOneShouldCreateAnInstanceWithIntervalsEqualToArrayOfTheElementsOrderedAndMergedProperly(){
         
-        let array = [1...3, 2...4, 5...8]
+        let array = [1.0...3.0, 2.0...4.0, 5.0...8.0]
         let intervals = OrderedNonOverlappingIntervals(from: array)
         
         let result = intervals.intervals
-        let expectedResult = [1...4, 5...8]
+        let expectedResult = [1.0...4.0, 5.0...8.0]
         
         XCTAssertEqual(result, expectedResult)
     }
@@ -65,11 +65,11 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     // ([1...3, 4...6, 5...8]) -> [1...3, 4...8]
     func testInitFromArrayOfThreeIntervalsWhereSecondOneOverlapsThirdOneShouldCreateAnInstanceWithIntervalsEqualToArrayOfTheElementsOrderedAndMergedProperly(){
         
-        let array = [1...3, 4...6, 5...8]
+        let array = [1.0...3.0, 4.0...6.0, 5.0...8.0]
         let intervals = OrderedNonOverlappingIntervals(from: array)
         
         let result = intervals.intervals
-        let expectedResult = [1...3, 4...8]
+        let expectedResult = [1.0...3.0, 4.0...8.0]
         
         XCTAssertEqual(result, expectedResult)
     }
@@ -77,11 +77,11 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     // ([1...3, 2...6, 5...8]) -> [1...8]
     func testInitFromArrayOfThreeIntervalsWhereSecondOneOverlapsBothOthersShouldCreateAnInstanceWithIntervalsEqualToArrayOfTheElementsMergedInOne(){
         
-        let array = [1...3, 2...6, 5...8]
+        let array = [1.0...3.0, 2.0...6.0, 5.0...8.0]
         let intervals = OrderedNonOverlappingIntervals(from: array)
         
         let result = intervals.intervals
-        let expectedResult = [1...8]
+        let expectedResult = [1.0...8.0]
         
         XCTAssertEqual(result, expectedResult)
     }
@@ -92,7 +92,7 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeAddedToEmptyArray() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let intervalToAd = 1...10
+        let intervalToAd = 1.0...10.0
         
         intervals.add(intervalToAd)
         
@@ -106,10 +106,10 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeAddedBeforeTheOnlyOne() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let intialInterval = 5...10
+        let intialInterval = 5.0...10.0
         intervals.add(intialInterval)
         
-        let intervalToAd = 1...3
+        let intervalToAd = 1.0...3.0
         
         intervals.add(intervalToAd)
         
@@ -123,10 +123,10 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeAddedAfterTheOnlyOne() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let intialInterval = 5...10
+        let intialInterval = 5.0...10.0
         intervals.add(intialInterval)
         
-        let intervalToAd = 11...13
+        let intervalToAd = 11.0...13.0
         
         intervals.add(intervalToAd)
         
@@ -140,13 +140,13 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeAddedBetweenTwo() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 11...12
+        let intervalToAd = 11.0...12.0
         
         intervals.add(intervalToAd)
         
@@ -164,10 +164,10 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeIgnoredBecauseIsASubsetOfTheOnlyOne() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let intialInterval = 5...10
+        let intialInterval = 5.0...10.0
         intervals.add(intialInterval)
         
-        let intervalToAd = 6...8
+        let intervalToAd = 6.0...8.0
         
         intervals.add(intervalToAd)
         
@@ -181,13 +181,13 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeIgnoredBecauseIsASubsetOfTheLastOfTwo() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 15...17
+        let intervalToAd = 15.0...17.0
         
         intervals.add(intervalToAd)
         
@@ -201,16 +201,16 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldBeIgnoredBecauseIsASubsetOfTheMiddleOfThree() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let thirdInterval = 23...28
+        let thirdInterval = 23.0...28.0
         intervals.add(thirdInterval)
         
-        let intervalToAd = 15...17
+        let intervalToAd = 15.0...17.0
         
         intervals.add(intervalToAd)
         
@@ -226,13 +226,13 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldReplaceTheOnlyOneBecauseIsASupersetOfTheOnlyOne() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let intialInterval = 5...10
+        let intialInterval = 5.0...10.0
         intervals.add(intialInterval)
         
-        let intervalToAd = 4...18
+        let intervalToAd = 4.0...18.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 4...18
+        let expectedMergedInterval = 4.0...18.0
         
         let result = intervals.intervals
         let expectedResult = [expectedMergedInterval]
@@ -244,16 +244,16 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldReplaceTheLastOneBecauseIsASupersetOfTheLastOfTwo() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 12...19
+        let intervalToAd = 12.0...19.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 12...19
+        let expectedMergedInterval = 12.0...19.0
         
         let result = intervals.intervals
         let expectedResult = [firstInterval, expectedMergedInterval]
@@ -265,16 +265,16 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldReplaceAllBecauseIsASupersetOfBothTwo() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 2...19
+        let intervalToAd = 2.0...19.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 2...19
+        let expectedMergedInterval = 2.0...19.0
         
         let result = intervals.intervals
         let expectedResult = [expectedMergedInterval]
@@ -286,19 +286,19 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalShouldReplaceTheSecondOfThreeBecauseIsASupersetOfIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let thirdInterval = 21...28
+        let thirdInterval = 21.0...28.0
         intervals.add(thirdInterval)
         
-        let intervalToAd = 12...19
+        let intervalToAd = 12.0...19.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 12...19
+        let expectedMergedInterval = 12.0...19.0
         
         let result = intervals.intervals
         let expectedResult = [firstInterval, expectedMergedInterval, thirdInterval]
@@ -312,18 +312,18 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalWithCommonBoundariesShouldBeMerged() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 13...18
+        let secondInterval = 13.0...18.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 10...13
+        let intervalToAd = 10.0...13.0
         
         intervals.add(intervalToAd)
         
         let result = intervals.intervals
-        let expectedResult = [5...18]
+        let expectedResult = [5.0...18.0]
         
         XCTAssertEqual(result, expectedResult)
     }
@@ -332,13 +332,13 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheOnlyOneFromTheLeftAndShouldBeMergedWithIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let initialnterval = 5...10
+        let initialnterval = 5.0...10.0
         intervals.add(initialnterval)
         
-        let intervalToAd = 2...6
+        let intervalToAd = 2.0...6.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 2...10
+        let expectedMergedInterval = 2.0...10.0
         
         let result = intervals.intervals
         let expectedResult = [expectedMergedInterval]
@@ -350,13 +350,13 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheOnlyOneFromTheRightAndShouldBeMergedWithIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let initialnterval = 5...10
+        let initialnterval = 5.0...10.0
         intervals.add(initialnterval)
         
-        let intervalToAd = 9...16
+        let intervalToAd = 9.0...16.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 5...16
+        let expectedMergedInterval = 5.0...16.0
         
         let result = intervals.intervals
         let expectedResult = [expectedMergedInterval]
@@ -368,16 +368,16 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheLastOneOfTwoFromTheLeftAndShouldBeMergedWithIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 15...20
+        let secondInterval = 15.0...20.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 12...16
+        let intervalToAd = 12.0...16.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 12...20
+        let expectedMergedInterval = 12.0...20.0
         
         let result = intervals.intervals
         let expectedResult = [firstInterval, expectedMergedInterval]
@@ -389,16 +389,16 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheLastOneOfTwoFromTheRightAndShouldBeMergedWithIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 15...20
+        let secondInterval = 15.0...20.0
         intervals.add(secondInterval)
         
-        let intervalToAd = 18...26
+        let intervalToAd = 18.0...26.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 15...26
+        let expectedMergedInterval = 15.0...26.0
         
         let result = intervals.intervals
         let expectedResult = [firstInterval, expectedMergedInterval]
@@ -410,19 +410,19 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheMiddleOneOfThreeFromTheRightAndShouldBeMergedWithIt() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 15...20
+        let secondInterval = 15.0...20.0
         intervals.add(secondInterval)
         
-        let thirdInterval = 22...25
+        let thirdInterval = 22.0...25.0
         intervals.add(thirdInterval)
         
-        let intervalToAd = 16...21
+        let intervalToAd = 16.0...21.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 15...21
+        let expectedMergedInterval = 15.0...21.0
         
         let result = intervals.intervals
         let expectedResult = [firstInterval, expectedMergedInterval, thirdInterval]
@@ -434,19 +434,19 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     func testIntervalOverlapsTheFirstAndLastOneOfThreeAndIsSubsetOfTheMiddleOneAntTheyAllShouldBeMerged() {
         
         var intervals = OrderedNonOverlappingIntervals()
-        let firstInterval = 5...10
+        let firstInterval = 5.0...10.0
         intervals.add(firstInterval)
         
-        let secondInterval = 15...20
+        let secondInterval = 15.0...20.0
         intervals.add(secondInterval)
         
-        let thirdInterval = 22...25
+        let thirdInterval = 22.0...25.0
         intervals.add(thirdInterval)
         
-        let intervalToAd = 9...23
+        let intervalToAd = 9.0...23.0
         
         intervals.add(intervalToAd)
-        let expectedMergedInterval = 5...25
+        let expectedMergedInterval = 5.0...25.0
         
         let result = intervals.intervals
         let expectedResult = [expectedMergedInterval]
@@ -458,10 +458,10 @@ class TestOrderedNonOverlappingIntervals: XCTestCase {
     
     func testSum(){
         
-        let intervals = OrderedNonOverlappingIntervals(from: [1...3, 5...9, 11...11])
+        let intervals = OrderedNonOverlappingIntervals(from: [1.0...3.0, 5.0...9.0, 11.0...11.0])
         
         let result = intervals.sum()
-        let expectedResult = 9
+        let expectedResult = 9.0
         
         XCTAssertEqual(result, expectedResult)
     }

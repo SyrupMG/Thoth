@@ -13,7 +13,7 @@ import Thoth
 class AppDelegate: UIResponder, UIApplicationDelegate { 
 
     var window: UIWindow?
-    var analyticsService = DefaultAnalyticsService().shared
+    var analyticsService = Thoth.defaultService()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

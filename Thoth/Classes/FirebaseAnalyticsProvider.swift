@@ -10,8 +10,7 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 
-public class FirebaseAnalyticsProvider: AnalyticsService {
-    
+public class FirebaseAnalyticsProvider: AnalyticsServiceProvider {
     public init(){}
     
     public func configure(){
@@ -21,15 +20,4 @@ public class FirebaseAnalyticsProvider: AnalyticsService {
     public func log(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.name, parameters: event.parameters)
     }
-    
-    public func startMeasuringDuration(of event: AnalyticsEvent) -> () -> Void {
-        return {}
-    }
-    
-    public func log(_ playedInterval: Interval, of content: AnalyticsPlayableContent) {
-        
-    }
-    
-    
-    
 }

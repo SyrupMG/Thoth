@@ -10,20 +10,42 @@ import Foundation
 // --- Внимание!
 // --- После внесения любых изменений в данный файл (включая extension), необходимо как минимум убедиться, что проходит TestOrderedNonOverlappingIntervals, а в идеале - предварительно дополнить его тестами на новую функциональность
 
-public struct OrderedNonOverlappingIntervals { //ordered
+extension ClosedRange: Codable where Bound == Double {
+    enum CodingKeys: String, CodingKey {
+        case lowerBound
+        case upperBound
+    }
     
-    public var intervals = [ClosedRange<Range<Int>.Bound>]()
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let lowerBound = try container.decode(Bound.self, forKey: .lowerBound)
+        let upperBound = try container.decode(Bound.self, forKey: .upperBound)
+        self = lowerBound...upperBound
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(lowerBound, forKey: .lowerBound)
+        try container.encode(upperBound, forKey: .upperBound)
+    }
+}
+
+public struct OrderedNonOverlappingIntervals: Codable { //ordered
+    public typealias Bound = Range<Double>.Bound
+    public typealias RangeType = ClosedRange<Bound>
+    
+    public private(set) var intervals = [RangeType]()
     
     public init() {}
     
     // если интервалы пересекаются или не упорядочены, то они будут преобразованы в неперескающиеся и упорядоченные
-    public init (from array: [ClosedRange<Range<Int>.Bound>]) {
+    public init (from array: [RangeType]) {
         
         guard !array.isEmpty else { return }
         self = array.convertToOrderedNonOverlappingIntervals()
     }
     
-    public mutating func add(_ interval: ClosedRange<Range<Int>.Bound>) {
+    public mutating func add(_ interval: RangeType) {
         
         guard !interval.isEmpty else { return }
         
@@ -32,7 +54,7 @@ public struct OrderedNonOverlappingIntervals { //ordered
             return
         }
         
-        var resultIntervals: [ClosedRange<Int>?] = self.intervals
+        var resultIntervals: [RangeType?] = self.intervals
         var intervalToAdd = interval
         
         
@@ -73,12 +95,12 @@ public struct OrderedNonOverlappingIntervals { //ordered
         self.intervals = resultIntervals.compactMap{$0}
     }
     
-    public func sum() -> Int {
-        return self.intervals.map{$0.length()}.reduce(0,+)
+    public func sum() -> Bound {
+        return self.intervals.map{ $0.length() }.reduce(0, +)
     }
 }
 
-extension ClosedRange where Bound == Int {
+extension ClosedRange where Bound == OrderedNonOverlappingIntervals.Bound {
     
     func includes(_ range: ClosedRange<Bound>) -> Bool {
         return self.lowerBound <= range.lowerBound && self.upperBound >= range.upperBound
@@ -96,12 +118,12 @@ extension ClosedRange where Bound == Int {
         self = Swift.min(self.lowerBound, range.lowerBound) ... Swift.max(self.upperBound, range.upperBound)
     }
     
-    func length() -> Int {
+    func length() -> OrderedNonOverlappingIntervals.Bound {
         return self.upperBound - self.lowerBound + 1
     }
 }
     
-extension Array where Element == ClosedRange<Range<Int>.Bound> {
+extension Array where Element == ClosedRange<OrderedNonOverlappingIntervals.Bound> {
     
      func convertToOrderedNonOverlappingIntervals() -> OrderedNonOverlappingIntervals {
         
