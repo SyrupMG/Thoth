@@ -12,7 +12,7 @@ public typealias Interval = (startTime: Double, endTime: Double)
 public protocol AnalyticsEvent {
     
     var name: String { get }
-    var parameters: [String:Any]? { get }
+    var parameters: [String: Any]? { get }
 }
 
 public protocol AnalyticsPlayableContent {
@@ -23,9 +23,11 @@ public protocol AnalyticsPlayableContent {
 
 public protocol AnalyticsService {
     
+    func configure()
+    
     func log(_ event: AnalyticsEvent)
     func startMeasuringDuration(of event: AnalyticsEvent) -> () -> Void
-    func log(_ playedInterval: Interval, of content: AnalyticsPlayableContent) -> Void
+    func log(_ playedInterval: Interval, of content: AnalyticsPlayableContent)
 }
 
 

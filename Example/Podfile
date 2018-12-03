@@ -1,6 +1,7 @@
 use_frameworks!
 
 target 'Thoth_Example' do
+  pod 'Alamofire'
   pod 'Thoth', :path => '../'
 
   target 'Thoth_Tests' do

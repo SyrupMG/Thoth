@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="1720.8" y="-278.41079460269867"/>
         </scene>
-        <!--Item-->
+        <!--Screen2-->
         <scene sceneID="xDc-AG-3W4">
             <objects>
-                <viewController id="huZ-XN-T9E" sceneMemberID="viewController">
+                <viewController id="huZ-XN-T9E" customClass="Screen2ViewController" customModule="Thoth_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dZN-7j-MMm"/>
                         <viewControllerLayoutGuide type="bottom" id="ZVJ-4H-tKH"/>
@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="tmO-rP-2y8"/>
+                    <tabBarItem key="tabBarItem" title="Screen2" id="tmO-rP-2y8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cu-im-zUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -104,6 +104,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="uGP-Jl-emV" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uid-px-uOo">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
