@@ -33,10 +33,10 @@ class DefaultAnalyticsService: AnalyticsService {
         providers.forEach{ $0.log(event) }
     }
     
-    func startMeasuringDuration(of event: AnalyticsEvent) -> () -> Void {
-        return { self.log(event) }
-    }
-    
+    func startMeasuringDuration(forTag tag: String) -> (AnalyticsEvent) -> Void {
+        let ends = providers.compactMap { $0 as? MeasuringAnalyticsServiceProvider }.map { $0.startMeasuringDuration(forTag: tag) }
+        return { event in ends.forEach { $0(event) } }
+    }    
 
     func log(_ playedInterval: Interval, of content: AnalyticsPlayableContent) {
         var intervals = playingContentIntervals[content.uniqueName] ?? OrderedNonOverlappingIntervals()

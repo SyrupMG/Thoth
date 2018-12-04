@@ -7,20 +7,17 @@
 
 import Foundation
 
-@objc(AnalyicsEvent)
-public protocol AnalyticsEvent {
+@objc public protocol AnalyticsEvent {
     @objc var name: String { get }
     @objc var parameters: [String: Any]? { get }
 }
 
-@objc(AnalyticsPlayableContent)
-public protocol AnalyticsPlayableContent {
+@objc public protocol AnalyticsPlayableContent {
     @objc var uniqueName: String { get }
     @objc var totalLength: Double { get }
 }
 
-@objc(AnalyticServiceDelegate)
-public protocol AnalyticServiceDelegate: AnyObject {
+@objc public protocol AnalyticServiceDelegate: AnyObject {
     /// Вероятнее всего, будет вызван как следствие работы `log(_ playedInterval: Interval, of content: AnalyticsPlayableContent)`
     ///
     /// - Parameters:
@@ -29,14 +26,18 @@ public protocol AnalyticServiceDelegate: AnyObject {
     @objc func contentProgressChanged(_ content: AnalyticsPlayableContent, progress: Double)
 }
 
-@objc(AnalyticsServiceProvider)
-public protocol AnalyticsServiceProvider {
+
+
+@objc public protocol AnalyticsServiceProvider {
     @objc func configure()
     @objc func log(_ event: AnalyticsEvent)
 }
 
-@objc(AnalyticsService)
-public protocol AnalyticsService: AnyObject {
+@objc public protocol MeasuringAnalyticsServiceProvider {
+    @objc func startMeasuringDuration(forTag tag: String) -> (AnalyticsEvent) -> Void
+}
+
+@objc public protocol AnalyticsService: AnyObject {
     typealias Interval = TimeInterval
     @objc var delegate: AnalyticServiceDelegate? { get set }
     
@@ -51,7 +52,7 @@ public protocol AnalyticsService: AnyObject {
     /// 1) Стартуем startMeasuringDuration
     /// 2) Запускаем сетевой запрос
     /// 3) Когда получаем результат, вызываем кложуру, полученную во время пункта 1
-    @objc func startMeasuringDuration(of event: AnalyticsEvent) -> () -> Void
+    @objc func startMeasuringDuration(forTag tag: String) -> (AnalyticsEvent) -> Void
     
     /// Логирует. Сервис сам занимается хранением информации о предыдущих логах.
     /// Если общий прогресс по одному контенту изменяется, будет вызван метод делегата
