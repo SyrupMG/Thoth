@@ -9,7 +9,7 @@ import Foundation
 
 @objc public protocol AnalyticsEvent {
     @objc var name: String { get }
-    @objc var parameters: [String: Any]? { get }
+    @objc var parameters: [String: String]? { get }
 }
 
 @objc public protocol AnalyticsPlayableContent {

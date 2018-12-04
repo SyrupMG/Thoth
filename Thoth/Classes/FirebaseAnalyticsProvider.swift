@@ -24,7 +24,7 @@ import FirebasePerformance
         let trace = Performance.startTrace(name: tag)
         return { event in
             event.parameters?.forEach { param in
-                trace?.setValue(param.value, forKey: param.key)
+                trace?.setValue(param.value, forAttribute: param.key)
             }
             trace?.stop()
         }
