@@ -12,7 +12,7 @@ public func defaultService() -> AnalyticsService {
 }
 
 @objc public class ThothServiceLocator: NSObject {
-    @objc static func `default`() -> AnalyticsService {
+    @objc public static func `default`() -> AnalyticsService {
         return defaultService()
     }
 }
