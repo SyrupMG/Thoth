@@ -11,7 +11,7 @@ public func defaultService() -> AnalyticsService {
     return DefaultAnalyticsService.shared
 }
 
-@objc class ThothServiceLocator: NSObject {
+@objc public class ThothServiceLocator: NSObject {
     @objc static func `default`() -> AnalyticsService {
         return defaultService()
     }
