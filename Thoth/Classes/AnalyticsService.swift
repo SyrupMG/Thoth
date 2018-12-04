@@ -7,17 +7,20 @@
 
 import Foundation
 
-@objc public protocol AnalyticsEvent {
+@objc(AnalyicsEvent)
+public protocol AnalyticsEvent {
     @objc var name: String { get }
     @objc var parameters: [String: Any]? { get }
 }
 
-@objc public protocol AnalyticsPlayableContent {
+@objc(AnalyticsPlayableContent)
+public protocol AnalyticsPlayableContent {
     @objc var uniqueName: String { get }
     @objc var totalLength: Double { get }
 }
 
-@objc public protocol AnalyticServiceDelegate: AnyObject {
+@objc(AnalyticServiceDelegate)
+public protocol AnalyticServiceDelegate: AnyObject {
     /// Вероятнее всего, будет вызван как следствие работы `log(_ playedInterval: Interval, of content: AnalyticsPlayableContent)`
     ///
     /// - Parameters:
@@ -26,12 +29,14 @@ import Foundation
     @objc func contentProgressChanged(_ content: AnalyticsPlayableContent, progress: Double)
 }
 
-@objc public protocol AnalyticsServiceProvider {
+@objc(AnalyticsServiceProvider)
+public protocol AnalyticsServiceProvider {
     @objc func configure()
     @objc func log(_ event: AnalyticsEvent)
 }
 
-@objc public protocol AnalyticsService: AnyObject {
+@objc(AnalyticsService)
+public protocol AnalyticsService: AnyObject {
     typealias Interval = TimeInterval
     @objc var delegate: AnalyticServiceDelegate? { get set }
     
