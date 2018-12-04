@@ -12,7 +12,7 @@ import Alamofire
 
 fileprivate class DummyContent: AnalyticsPlayableContent {
     var uniqueName: String = "GOGI"
-    var totalLength: TimeInterval = 120
+    var totalLength: Double = 120
 }
 
 fileprivate class CoolDelegate: AnalyticServiceDelegate {
@@ -43,11 +43,11 @@ class Screen1ViewController: UIViewController {
     
     private func logSomeContentPregress() {
         analyticsService.delegate = delegate
-        analyticsService.log(0...1, of: self.dummy)
+        analyticsService.log((0...1).timeInterval, of: self.dummy)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-            self.analyticsService.log(1...3, of: self.dummy)
+            self.analyticsService.log((1...3).timeInterval, of: self.dummy)
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.analyticsService.log(3...5, of: self.dummy)
+                self.analyticsService.log((3...5).timeInterval, of: self.dummy)
             }
         }
     }

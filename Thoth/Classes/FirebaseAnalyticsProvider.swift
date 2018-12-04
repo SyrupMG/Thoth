@@ -10,14 +10,12 @@ import Foundation
 import FirebaseCore
 import FirebaseAnalytics
 
-public class FirebaseAnalyticsProvider: AnalyticsServiceProvider {
-    public init(){}
-    
-    public func configure(){
+@objc public class FirebaseAnalyticsProvider: NSObject, AnalyticsServiceProvider {
+    @objc public func configure(){
         FirebaseApp.configure()
     }
     
-    public func log(_ event: AnalyticsEvent) {
+    @objc public func log(_ event: AnalyticsEvent) {
         Analytics.logEvent(event.name, parameters: event.parameters)
     }
 }

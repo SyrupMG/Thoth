@@ -13,7 +13,7 @@ enum EventName: String {
     case network
 }
 
-struct NetworkEvent: AnalyticsEvent {
+class NetworkEvent: AnalyticsEvent {
     
     let name = EventName.network.rawValue
     

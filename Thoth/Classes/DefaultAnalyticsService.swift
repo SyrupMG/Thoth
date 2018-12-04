@@ -7,10 +7,6 @@
 
 import Foundation
 
-public func defaultService() -> AnalyticsService {
-    return DefaultAnalyticsService.shared
-}
-
 class DefaultAnalyticsService: AnalyticsService {
     weak var delegate: AnalyticServiceDelegate?
     
@@ -26,7 +22,7 @@ class DefaultAnalyticsService: AnalyticsService {
     
     private var providers: [AnalyticsServiceProvider] = []
     
-    func register(providers: AnalyticsServiceProvider...) {
+    func register(providers: [AnalyticsServiceProvider]) {
         self.providers += providers.compactMap { newProvider in
             guard (self.providers.first(where: { String(describing: newProvider.self) == String(describing: $0.self) })) == nil else { return nil }
             return newProvider
@@ -46,7 +42,7 @@ class DefaultAnalyticsService: AnalyticsService {
         var intervals = playingContentIntervals[content.uniqueName] ?? OrderedNonOverlappingIntervals()
         
         let oldOverallTime = intervals.sum()
-        intervals.add(playedInterval)
+        intervals.add(playedInterval.closedRange)
         let newOverallTime = intervals.sum()
         
         if (oldOverallTime != newOverallTime) {
