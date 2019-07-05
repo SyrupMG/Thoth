@@ -42,6 +42,7 @@ TODO: Add long description of the pod here.
   s.dependency "Firebase"
   s.dependency "Firebase/Core"
   s.dependency "Firebase/Performance"
+  s.dependency "YandexMobileMetrica/Dynamic"
 
   s.static_framework = true
   
