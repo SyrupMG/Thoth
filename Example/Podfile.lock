@@ -136,7 +136,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Thoth: bc95a27ee5daba967ac7e92fd3acd5103ffc101a
+  Thoth: 9df8ccbb0238ec13847f755439be73b0a98b4d03
   YandexMobileMetrica: 11eee6732831a44aea2d81e3ae8626b5b0e129c5
 
 PODFILE CHECKSUM: d6e1c0e2e20726677018a2251f95be333233ef4f
