@@ -9,6 +9,8 @@ import Foundation
 import Thoth
 
 public struct LoginEvent: AppmetricaEvent {
+    public var ProjectId: String?
+    
     public let trackId: String? = nil
     public let eventValue: String? = nil
     

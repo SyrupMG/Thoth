@@ -54,5 +54,6 @@ public protocol AppmetricaEvent: AnalyticEvent {
     var screen: String { get }
     var block: String { get }
     var trackId: String? { get }
+    var projectId: String? { get }
     var eventValue: String? { get }
 }
