@@ -12,9 +12,9 @@ import Foundation
 public protocol AnalyticEvent {
     
     var name: String {get}
-    var params: [String: String] {get}
+    var params: [String: Any?] {get}
 }
 
 extension AnalyticEvent {
-    var params: [String: String] { return [:] }
+    var params: [String: Any?] { return [:] }
 }
