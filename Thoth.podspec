@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.9.1'
+  s.version          = '0.9.2'
   s.summary          = 'Simple Anlitycs service'
 
 # This description is used to generate tags and improve search results.
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-
+Simple Anlitycs service used in CTCMedia projects
                        DESC
 
   s.homepage         = 'https://gitlab.ctcmedia.ru/mobiledev/Thoth'
