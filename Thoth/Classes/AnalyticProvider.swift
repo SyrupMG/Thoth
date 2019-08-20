@@ -8,5 +8,6 @@
 import Foundation
 
 public protocol AnalyticProvider {
+    func bootstrap()
     func post(event: AnalyticEvent)
 }

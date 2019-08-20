@@ -7,14 +7,11 @@
 
 import Foundation
 
-
-
 public protocol AnalyticEvent {
-    
-    var name: String {get}
-    var params: [String: Any?] {get}
+    var name: String { get }
+    var params: [String: Any] { get }
 }
 
 extension AnalyticEvent {
-    var params: [String: Any?] { return [:] }
+    var params: [String: Any] { return [:] }
 }

@@ -13,8 +13,8 @@ public struct LoginEvent: AppmetricaEvent {
     
     public let trackId: String? = nil
     public let eventValue: String? = nil
-    
-    public let params: Dictionary<String, Any?> = [:]
+
+    public let params: [String: Any] = [:]
     
     public let name: String = "login"
     

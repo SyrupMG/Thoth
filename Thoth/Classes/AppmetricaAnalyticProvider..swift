@@ -8,23 +8,22 @@
 import Foundation
 import YandexMobileMetrica
 
+public protocol AppmetricaEvent: AnalyticEvent { }
+
 public class AppmetricaAnalyticProvider: AnalyticProvider {
-    
-    public func post(event: AnalyticEvent) {
-        guard let e = event as? AppmetricaEvent else {
-            return
-        }
-        
-        YMMYandexMetrica.reportEvent(e.name, parameters: e.params)
-    }
-    
-    
-    
     public init(apiKey: String) {
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: apiKey)
         YMMYandexMetrica.activate(with: configuration!)
     }
+
+    public func bootstrap() {
+
+    }
+
+    public func post(event: AnalyticEvent) {
+        guard let event = event as? AppmetricaEvent else { return }
+        
+        YMMYandexMetrica.reportEvent(event.name, parameters: event.params)
+    }
 }
 
-public protocol AppmetricaEvent: AnalyticEvent {
-}
