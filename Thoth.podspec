@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.1.0'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of Thoth.'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Thoth/**/*'
+  s.source_files = 'Thoth/**/*.swift'
   
   # s.resource_bundles = {
   #   'Thoth' => ['Thoth/Assets/*.png']
@@ -42,6 +42,7 @@ TODO: Add long description of the pod here.
   s.dependency "Firebase"
   s.dependency "Firebase/Core"
   s.dependency "Firebase/Performance"
+  s.dependency "YandexMobileMetrica/Dynamic"
 
   s.static_framework = true
   

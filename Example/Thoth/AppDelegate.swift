@@ -13,14 +13,14 @@ import Thoth
 class AppDelegate: UIResponder, UIApplicationDelegate { 
 
     var window: UIWindow?
-    var analyticsService = Thoth.defaultService()
+//    var analyticsService = Thoth.defaultService()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        analyticsService.register(providers: [FirebaseAnalyticsProvider()])
-        analyticsService.configure()
+//        analyticsService.register(providers: [FirebaseAnalyticsProvider()])
+//        analyticsService.configure()
         
         return true
     }

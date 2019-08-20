@@ -7,24 +7,19 @@
 //
 
 import UIKit
+import Thoth
 
 class Screen2ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let service = DefaultAnalyticService()
+        service.register(provider: AppmetricaAnalyticProvider(apiKey: "a5e0844d-a89b-4966-b58d-c541ed34e95c"))
+        
+        service.bootstrap()
+        let item = LoginEvent.init()
+        service.post(event: item)
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
