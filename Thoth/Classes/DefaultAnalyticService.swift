@@ -8,6 +8,7 @@
 import Foundation
 
 public class DefaultAnalyticService: AnalyticService {
+    public var appmetricaDeviceId: String?
 
     public init() {}
 

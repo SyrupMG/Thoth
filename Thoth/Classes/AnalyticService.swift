@@ -8,6 +8,7 @@
 import Foundation
 
 public protocol AnalyticService {
+    var appmetricaDeviceId: String? { get }
     func register(provider: AnalyticProvider)
     func post(event: AnalyticEvent)
     func bootstrap()
