@@ -11,13 +11,18 @@ import YandexMobileMetrica
 public protocol AppmetricaEvent: AnalyticEvent { }
 
 public class AppmetricaAnalyticProvider: AnalyticProvider {
+    private(set) var appmetricaDeviceId: String? = nil
+    
     public init(apiKey: String) {
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: apiKey)
         YMMYandexMetrica.activate(with: configuration!)
     }
 
     public func bootstrap() {
-
+        YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue.global(qos: .default)) { deviceId, error in
+            guard error == nil else { return }
+            self.appmetricaDeviceId = deviceId
+        }
     }
 
     public func post(event: AnalyticEvent) {
