@@ -84,7 +84,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - Thoth (0.9.4):
+  - Thoth (0.9.6):
     - AppsFlyerFramework
     - Firebase
     - Firebase/Core

@@ -11,7 +11,7 @@ import YandexMobileMetrica
 public protocol AppmetricaEvent: AnalyticEvent { }
 
 public class AppmetricaAnalyticProvider: AnalyticProvider {
-    private(set) var appmetricaDeviceId: String? = nil
+    public var deviceIdChangeCallback: ((String?) -> ())? = nil
     
     public init(apiKey: String) {
         let configuration = YMMYandexMetricaConfiguration.init(apiKey: apiKey)
@@ -21,7 +21,7 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
     public func bootstrap() {
         YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue.global(qos: .default)) { deviceId, error in
             guard error == nil else { return }
-            self.appmetricaDeviceId = deviceId
+            self.requestAppmetricaDeviceId()
         }
     }
 
@@ -29,6 +29,13 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
         guard let event = event as? AppmetricaEvent else { return }
         
         YMMYandexMetrica.reportEvent(event.name, parameters: event.params)
+    }
+    
+    private func requestAppmetricaDeviceId() {
+        YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue.global(qos: .default)) { deviceId, error in
+            guard error == nil else { self.deviceIdChangeCallback?(nil); return }
+            self.deviceIdChangeCallback?(deviceId)
+        }
     }
 }
 
