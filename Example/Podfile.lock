@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - AppsFlyerFramework (4.10.4)
   - Firebase (5.13.0):
     - Firebase/Core (= 5.13.0)
   - Firebase/Core (5.13.0):
@@ -83,7 +84,8 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - Thoth (0.1.3):
+  - Thoth (0.9.4):
+    - AppsFlyerFramework
     - Firebase
     - Firebase/Core
     - Firebase/Performance
@@ -102,6 +104,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AppsFlyerFramework
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -123,6 +126,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AppsFlyerFramework: aeb793095c1b33170ae30bef66652c0645f409be
   Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
@@ -136,7 +140,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Thoth: f5f21c6d8d506aa64de28c03eb1b68c30662ea5e
+  Thoth: 007ebf7af6a9033d8670f3f8ca09f7ea7ef7e56e
   YandexMobileMetrica: 11eee6732831a44aea2d81e3ae8626b5b0e129c5
 
 PODFILE CHECKSUM: d6e1c0e2e20726677018a2251f95be333233ef4f

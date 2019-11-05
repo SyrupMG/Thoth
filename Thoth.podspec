@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.9.4'
+  s.version          = '0.9.5'
   s.summary          = 'Simple Anlitycs service'
 
 # This description is used to generate tags and improve search results.
@@ -36,6 +36,7 @@ Simple Anlitycs service used in CTCMedia projects
   s.dependency "Firebase/Core"
   s.dependency "Firebase/Performance"
   s.dependency "YandexMobileMetrica/Dynamic"
+  s.dependency "AppsFlyerFramework"
 
   s.static_framework = true
   
