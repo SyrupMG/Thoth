@@ -11,8 +11,6 @@ import AppsFlyerLib
 public protocol AppsFlyerEvent: AnalyticEvent {}
 
 public class AppsFlyerAnalyticProvider: AnalyticProvider {
-    private(set) var appmetricaDeviceId: String? = nil
-
     public init(apiKey: String, appleId: String) {
         AppsFlyerTracker.shared().appsFlyerDevKey = apiKey
         AppsFlyerTracker.shared().appleAppID = appleId
@@ -20,11 +18,14 @@ public class AppsFlyerAnalyticProvider: AnalyticProvider {
 
     public func bootstrap() {}
 
-    /** Отправка события.
-     */
+    /** Отправка события */
     public func post(event: AnalyticEvent) {
         guard let event = event as? AppsFlyerEvent else { return }
 
         AppsFlyerTracker.shared()?.trackEvent(event.name, withValues: event.params)
+    }
+    
+    public func setCustomerUserId(_ customerUserID: String?) {
+        AppsFlyerTracker.shared().customerUserID = customerUserID
     }
 }
