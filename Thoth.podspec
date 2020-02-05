@@ -36,7 +36,7 @@ Simple Anlitycs service used in CTCMedia projects
   s.dependency "Firebase"
   s.dependency "Firebase/Core"
   s.dependency "Firebase/Performance"
-  s.dependency "YandexMobileMetrica/Dynamic"
+  s.ios.dependency "YandexMobileMetrica/Dynamic"
   s.dependency "AppsFlyerFramework"
 
   s.static_framework = true
