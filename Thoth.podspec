@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.9.9'
-  s.summary          = 'Simple Anlitycs service'
+  s.version          = '0.9.10'
+  s.summary          = 'Simple Analytics service'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Simple Anlitycs service used in CTCMedia projects
+Simple Analytics service used in CTCMedia projects
                        DESC
 
   s.homepage         = 'https://gitlab.ctcmedia.ru/mobiledev/Thoth'
@@ -35,6 +35,7 @@ Simple Anlitycs service used in CTCMedia projects
 
   s.dependency "Firebase"
   s.dependency "Firebase/Core"
+  s.dependency "Firebase/Analytics"
   s.dependency "Firebase/Performance"
   s.ios.dependency "YandexMobileMetrica/Dynamic"
   s.dependency "AppsFlyerFramework"

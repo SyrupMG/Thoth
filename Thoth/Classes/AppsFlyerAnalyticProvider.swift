@@ -22,7 +22,7 @@ public class AppsFlyerAnalyticProvider: AnalyticProvider {
     public func post(event: AnalyticEvent) {
         guard let event = event as? AppsFlyerEvent else { return }
 
-        AppsFlyerTracker.shared()?.trackEvent(event.name, withValues: event.params)
+        AppsFlyerTracker.shared().trackEvent(event.name, withValues: event.params)
     }
     
     public func setCustomerUserId(_ customerUserID: String?) {
