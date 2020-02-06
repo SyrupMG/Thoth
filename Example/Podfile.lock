@@ -102,7 +102,7 @@ DEPENDENCIES:
   - Thoth (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - AppsFlyerFramework
     - Firebase
@@ -140,9 +140,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Thoth: 007ebf7af6a9033d8670f3f8ca09f7ea7ef7e56e
+  Thoth: fecf54f59e25e7e1fd3d9ba1aed89635fb2b8896
   YandexMobileMetrica: 11eee6732831a44aea2d81e3ae8626b5b0e129c5
 
 PODFILE CHECKSUM: d6e1c0e2e20726677018a2251f95be333233ef4f
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
