@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.9.10'
+  s.version          = '0.9.11'
   s.summary          = 'Simple Analytics service'
 
 # This description is used to generate tags and improve search results.
@@ -35,8 +35,7 @@ Simple Analytics service used in CTCMedia projects
 
   s.dependency "Firebase"
   s.dependency "Firebase/Core"
-  s.dependency "Firebase/Analytics"
-  s.dependency "Firebase/Performance"
+  s.ios.dependency "Firebase/Performance"
   s.ios.dependency "YandexMobileMetrica/Dynamic"
   s.dependency "AppsFlyerFramework"
 
