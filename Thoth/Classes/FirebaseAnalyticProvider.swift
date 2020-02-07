@@ -6,8 +6,12 @@
 //
 
 import Foundation
-import FirebaseCore
+
+public protocol FirebaseEvent: AnalyticEvent {}
+
+#if os(iOS)
 import FirebaseAnalytics
+import FirebaseCore
 import FirebasePerformance
 
 public class FirebaseAnalyticProvider: AnalyticProvider {
@@ -25,5 +29,4 @@ public class FirebaseAnalyticProvider: AnalyticProvider {
 
     }
 }
-
-public protocol FirebaseEvent: AnalyticEvent {}
+#endif
