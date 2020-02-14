@@ -6,11 +6,9 @@
 //
 
 import Foundation
+import YandexMobileMetrica
 
 public protocol AppmetricaEvent: AnalyticEvent { }
-
-#if os(iOS)
-import YandexMobileMetrica
 
 public class AppmetricaAnalyticProvider: AnalyticProvider {
     public var deviceIdChangeCallback: ((String?) -> ())? = nil
@@ -40,5 +38,4 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
         }
     }
 }
-#endif
 
