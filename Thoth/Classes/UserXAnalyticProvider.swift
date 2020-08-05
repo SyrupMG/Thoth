@@ -6,10 +6,11 @@
 //
 
 import Foundation
-import UserXKit
 
 public protocol UserXEvent: AnalyticEvent { }
 
+#if os(iOS)
+import UserXKit
 public class UserXAnalyticProvider: AnalyticProvider {
     
     public init() {
@@ -23,4 +24,5 @@ public class UserXAnalyticProvider: AnalyticProvider {
     public func bootstrap() {
     }
 }
+#endif
 
