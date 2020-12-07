@@ -12,8 +12,8 @@ public protocol AppsFlyerEvent: AnalyticEvent {}
 
 public class AppsFlyerAnalyticProvider: AnalyticProvider {
     public init(apiKey: String, appleId: String) {
-        AppsFlyerTracker.shared().appsFlyerDevKey = apiKey
-        AppsFlyerTracker.shared().appleAppID = appleId
+        AppsFlyerLib.shared().appsFlyerDevKey = apiKey
+        AppsFlyerLib.shared().appleAppID = appleId
     }
 
     public func bootstrap() {}
@@ -22,10 +22,10 @@ public class AppsFlyerAnalyticProvider: AnalyticProvider {
     public func post(event: AnalyticEvent) {
         guard let event = event as? AppsFlyerEvent else { return }
 
-        AppsFlyerTracker.shared().trackEvent(event.name, withValues: event.params)
+        AppsFlyerLib.shared().logEvent(event.name, withValues: event.params)
     }
     
     public func setCustomerUserId(_ customerUserID: String?) {
-        AppsFlyerTracker.shared().customerUserID = customerUserID
+        AppsFlyerLib.shared().customerUserID = customerUserID
     }
 }

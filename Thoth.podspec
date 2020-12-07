@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.9.15'
+  s.version          = '0.9.16'
   s.summary          = 'Simple Analytics service'
 
 # This description is used to generate tags and improve search results.
