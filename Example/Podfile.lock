@@ -84,12 +84,17 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.6.1)
-  - Thoth (0.9.13):
+  - Thoth (0.9.16):
     - AppsFlyerFramework
     - Firebase
     - Firebase/Core
     - Firebase/Performance
+    - UserX
     - YandexMobileMetrica/Dynamic
+    - YandexMobileMetrica/Dynamic-TV
+  - UserX (2.0.1):
+    - UserX/XCFramework (= 2.0.1)
+  - UserX/XCFramework (2.0.1)
   - YandexMobileMetrica/Dynamic (3.6.0):
     - YandexMobileMetrica/Dynamic/Core (= 3.6.0)
     - YandexMobileMetrica/Dynamic/Crashes (= 3.6.0)
@@ -119,6 +124,8 @@ SPEC REPOS:
     - nanopb
     - Protobuf
     - YandexMobileMetrica
+  trunk:
+    - UserX
 
 EXTERNAL SOURCES:
   Thoth:
@@ -140,9 +147,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Thoth: fecf54f59e25e7e1fd3d9ba1aed89635fb2b8896
+  Thoth: d20883cbb26a88f0c47c45adc0b64eabacc18a4e
+  UserX: bcefea00ce5d3fbaeb344af2b576207e4203baf8
   YandexMobileMetrica: 11eee6732831a44aea2d81e3ae8626b5b0e129c5
 
 PODFILE CHECKSUM: d6e1c0e2e20726677018a2251f95be333233ef4f
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.2
