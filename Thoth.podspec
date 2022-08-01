@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Thoth'
-  s.version          = '0.10.0'
+  s.version          = '1.0.0'
   s.summary          = 'Simple Analytics service'
 
 # This description is used to generate tags and improve search results.
@@ -22,31 +22,48 @@ Simple Analytics service used in CTCMedia projects
                        DESC
 
   s.homepage         = 'https://gitlab.ctcmedia.ru/mobiledev/Thoth'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'tm' => 'TMalysheva@ctcmedia.ru' }
+  s.author           = {
+    'tm' => 'TMalysheva@ctcmedia.ru',
+    'abesmon' => 'abesmon@gmail.com'
+  }
   s.source           = { :git => 'https://gitlab.ctcmedia.ru/mobiledev/Thoth.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
-  s.tvos.deployment_target = '10.0'
+  s.ios.deployment_target = '10.3'
+  s.tvos.deployment_target = '10.3'
+  s.swift_version = '5.0'
 
-  s.source_files = 'Thoth/**/*.swift'
-
-  s.dependency "Firebase"
-  s.dependency "Firebase/Core"
-  s.ios.dependency "Firebase/Performance"
-  s.ios.dependency "YandexMobileMetrica/Dynamic"
-  s.tvos.dependency "YandexMobileMetrica/Dynamic-TV"
-  s.dependency "AppsFlyerFramework"
-
-  s.static_framework = true
+  s.default_subspecs = 'Core'
   
-  s.pod_target_xcconfig = {
-      'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/Firebase $(PODS_ROOT)/FirebaseCore/Frameworks $(PODS_ROOT)/FirebaseRemoteConfig/Frameworks $(PODS_ROOT)/FirebaseInstanceID/Frameworks $(PODS_ROOT)/FirebaseAnalytics/Frameworks $(PODS_ROOT)/FirebaseABTesting/Frameworks'
-  }
-  s.pod_target_xcconfig = {
-      'OTHER_LDFLAGS' => '$(inherited) -ObjC'
-  }
-
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'Thoth/Core/*.swift'
+  end
+  
+  s.subspec 'Firebase' do |ss|
+    ss.source_files = 'Thoth/Firebase/*.swift'
+    ss.dependency "Thoth/Core"
+    ss.dependency "Firebase", '~> 8.8'
+    ss.dependency "Firebase/Core"
+    ss.ios.dependency "Firebase/Performance"
+  end
+  
+  s.subspec 'AppsFlyerDynamic' do |ss|
+    s.static_framework = true
+    ss.source_files = 'Thoth/AppsFlyer/*.swift'
+    ss.dependency "Thoth/Core"
+    ss.dependency "AppsFlyerFramework/Dynamic", '~> 6.8'
+  end
+  
+  s.subspec 'AppsFlyerStrict' do |ss|
+    s.static_framework = true
+    ss.source_files = 'Thoth/AppsFlyer/*.swift'
+    ss.dependency "Thoth/Core"
+    ss.dependency "AppsFlyerFramework/Strict", '~> 6.8'
+  end
+  
+  s.subspec 'AppMetrica' do |ss|
+    ss.source_files = 'Thoth/AppMetrica/*.swift'
+    ss.dependency "Thoth/Core"
+    ss.dependency "YandexMobileMetrica/Dynamic", '~> 4.2'
+  end
 end

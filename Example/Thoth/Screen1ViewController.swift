@@ -56,14 +56,9 @@ class Screen1ViewController: UIViewController {
         
         let urlString = "https://videomore.ru/api/tracks.json?app_id=videomore_&track_id=260088&sig=04d450387a2ba85e7c43acb030fb309d"
       
-        
-        Alamofire.request(urlString).responseString {
-            
-            //var event = NetworkEvent(url: urlString, executionTime: )
-            
-            
+        AF.request(urlString).responseString {
             do {
-                let jsonString = try $0.result.unwrap()
+                let jsonString = try $0.result.get()
                 
                 /*
                 let json = try JSON.decode(jsonString)

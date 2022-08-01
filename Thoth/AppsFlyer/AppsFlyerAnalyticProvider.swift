@@ -21,8 +21,7 @@ public class AppsFlyerAnalyticProvider: AnalyticProvider {
     /** Отправка события */
     public func post(event: AnalyticEvent) {
         guard let event = event as? AppsFlyerEvent else { return }
-
-        AppsFlyerLib.shared().logEvent(event.name, withValues: event.params)
+        AppsFlyerLib.shared().logEvent(name: event.name, values: event.params)
     }
     
     public func setCustomerUserId(_ customerUserID: String?) {
