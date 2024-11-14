@@ -45,9 +45,7 @@ let package = Package(
                     name: "FirebasePerformance",
                     package: "firebase-ios-sdk"
                 )
-            ],
-            path: "Thoth",
-            sources: ["Core", "Firebase", "AppsFlyer", "AppMetrica"]
+            ]
         )
     ]
 )
