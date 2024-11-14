@@ -6,7 +6,7 @@ Thoth can be installed using Swift Package Manager (SPM). To do this, add the fo
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/SyrupMG/Thoth.git", from: "1.0.0")
+    .package(url: "https://github.com/SyrupMG/Thoth.git", from: "2.0.0")
 ]
 ```
 
