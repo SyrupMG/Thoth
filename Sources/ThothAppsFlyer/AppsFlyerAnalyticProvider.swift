@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ThothCore
 import AppsFlyerLib
 
 public protocol AppsFlyerEvent: AnalyticEvent {}

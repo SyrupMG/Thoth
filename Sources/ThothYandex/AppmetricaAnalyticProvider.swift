@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ThothCore
 import YandexMobileMetrica
 
 public protocol AppmetricaEvent: AnalyticEvent { }

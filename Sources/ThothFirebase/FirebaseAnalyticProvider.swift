@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ThothCore
 
 public protocol FirebaseEvent: AnalyticEvent {}
 

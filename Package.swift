@@ -7,9 +7,21 @@ let package = Package(
     platforms: [.iOS(.v13)],
     products: [
         .library(
-            name: "Thoth",
-            targets: ["Thoth"]
+            name: "ThothCore",
+            targets: ["ThothCore"]
         ),
+        .library(
+            name: "ThothYandex",
+            targets: ["ThothYandex"]
+        ),
+        .library(
+            name: "ThothAppsFlyer",
+            targets: ["ThothAppsFlyer"]
+        ),
+        .library(
+            name: "ThothFirebase",
+            targets: ["ThothFirebase"]
+        )
     ],
     dependencies: [
         .package(
@@ -27,24 +39,29 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Thoth",
+            name: "ThothCore",
+            dependencies: []
+        ),
+        .target(
+            name: "ThothYandex",
             dependencies: [
-                .product(
-                    name: "YandexMobileMetrica",
-                    package: "metrica-sdk-ios"
-                ),
-                .product(
-                    name: "AppsFlyerLib-Strict",
-                    package: "AppsFlyerFramework-Strict"
-                ),
-                .product(
-                    name: "FirebaseAnalytics",
-                    package: "firebase-ios-sdk"
-                ),
-                .product(
-                    name: "FirebasePerformance",
-                    package: "firebase-ios-sdk"
-                )
+                "ThothCore",
+                .product(name: "YandexMobileMetrica", package: "metrica-sdk-ios")
+            ]
+        ),
+        .target(
+            name: "ThothAppsFlyer",
+            dependencies: [
+                "ThothCore",
+                .product(name: "AppsFlyerLib-Strict", package: "AppsFlyerFramework-Strict")
+            ]
+        ),
+        .target(
+            name: "ThothFirebase",
+            dependencies: [
+                "ThothCore",
+                .product(name: "FirebaseAnalytics", package: "firebase-ios-sdk"),
+                .product(name: "FirebasePerformance", package: "firebase-ios-sdk")
             ]
         )
     ]
