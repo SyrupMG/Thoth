@@ -36,11 +36,11 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
     
     private func requestAppmetricaDeviceId() {
         AppMetrica.requestStartupIdentifiers(
-            for: [.deviceIDKey],
+            for: [.deviceIDHashKey],
             on: .global(qos: .default)
         ) { result, error in
             guard error == nil else { self.deviceIdChangeCallback?(nil); return }
-            if let deviceID = result?[StartupKey.deviceIDKey] as? String {
+            if let deviceID = result?[StartupKey.deviceIDHashKey] as? String {
                 self.deviceIdChangeCallback?(deviceID)
             }
         }
