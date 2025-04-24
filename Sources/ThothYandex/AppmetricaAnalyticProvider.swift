@@ -21,7 +21,7 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
 
     public func bootstrap() {
         AppMetrica.requestStartupIdentifiers(
-            for: [.deviceIDKey],
+            for: [.deviceIDHashKey],
             on: .global(qos: .default)
         ) { deviceId, error in
             guard error == nil else { return }
