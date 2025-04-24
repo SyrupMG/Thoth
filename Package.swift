@@ -25,8 +25,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/yandexmobile/metrica-sdk-ios",
-            .upToNextMajor(from: "4.2.0")
+            url: "https://github.com/appmetrica/appmetrica-sdk-ios",
+            .upToNextMajor(from: "5.9.0")
         ),
         .package(
             url: "https://github.com/AppsFlyerSDK/AppsFlyerFramework-Strict",
@@ -46,7 +46,7 @@ let package = Package(
             name: "ThothYandex",
             dependencies: [
                 "ThothCore",
-                .product(name: "YandexMobileMetrica", package: "metrica-sdk-ios")
+                .product(name: "AppMetricaCore", package: "appmetrica-sdk-ios")
             ]
         ),
         .target(

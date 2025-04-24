@@ -7,7 +7,7 @@
 
 import Foundation
 import ThothCore
-import YandexMobileMetrica
+import AppMetricaCore
 
 public protocol AppmetricaEvent: AnalyticEvent { }
 
@@ -15,12 +15,15 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
     public var deviceIdChangeCallback: ((String?) -> ())? = nil
     
     public init(apiKey: String) {
-        let configuration = YMMYandexMetricaConfiguration.init(apiKey: apiKey)
-        YMMYandexMetrica.activate(with: configuration!)
+        let configuration = AppMetricaConfiguration(apiKey: apiKey)
+        AppMetrica.activate(with: configuration!)
     }
 
     public func bootstrap() {
-        YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue.global(qos: .default)) { deviceId, error in
+        AppMetrica.requestStartupIdentifiers(
+            for: [.deviceIDKey],
+            on: .global(qos: .default)
+        ) { deviceId, error in
             guard error == nil else { return }
             self.requestAppmetricaDeviceId()
         }
@@ -28,14 +31,18 @@ public class AppmetricaAnalyticProvider: AnalyticProvider {
 
     public func post(event: AnalyticEvent) {
         guard let event = event as? AppmetricaEvent else { return }
-        
-        YMMYandexMetrica.reportEvent(event.name, parameters: event.params)
+        AppMetrica.reportEvent(name: event.name, parameters: event.params)
     }
     
     private func requestAppmetricaDeviceId() {
-        YMMYandexMetrica.requestAppMetricaDeviceID(withCompletionQueue: DispatchQueue.global(qos: .default)) { deviceId, error in
+        AppMetrica.requestStartupIdentifiers(
+            for: [.deviceIDKey],
+            on: .global(qos: .default)
+        ) { result, error in
             guard error == nil else { self.deviceIdChangeCallback?(nil); return }
-            self.deviceIdChangeCallback?(deviceId)
+            if let deviceID = result?[StartupKey.deviceIDKey] as? String {
+                self.deviceIdChangeCallback?(deviceID)
+            }
         }
     }
 }
